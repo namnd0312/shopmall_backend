@@ -1,4 +1,4 @@
-package nam.nd.shopmall.Util;
+package nam.nd.shopmall.util;
 
 
 import org.apache.commons.lang3.StringUtils;

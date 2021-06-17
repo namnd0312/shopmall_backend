@@ -1,8 +1,7 @@
 package nam.nd.shopmall.service.impl;
 
-import nam.nd.shopmall.Util.Util;
+import nam.nd.shopmall.util.Util;
 import nam.nd.shopmall.dao.ProductDao;
-import nam.nd.shopmall.enums.MessageEnum;
 import nam.nd.shopmall.service.dto.ChangeProductStatusDto;
 import nam.nd.shopmall.service.dto.ProductDto;
 import nam.nd.shopmall.service.mapper.ProductMapper;

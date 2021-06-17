@@ -2,7 +2,7 @@ package nam.nd.shopmall.exception;
 
 import lombok.Getter;
 import lombok.Setter;
-import nam.nd.shopmall.Util.Util;
+import nam.nd.shopmall.util.Util;
 import nam.nd.shopmall.enums.MessageEnum;
 
 /**

@@ -1,6 +1,6 @@
 package nam.nd.shopmall.service.mapper;
 
-import nam.nd.shopmall.Util.Util;
+import nam.nd.shopmall.util.Util;
 import nam.nd.shopmall.model.Product;
 import nam.nd.shopmall.service.dto.ProductDto;
 import org.springframework.beans.BeanUtils;
