@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.Instant;
 
 /**
  * @author nam.nd
@@ -44,9 +45,7 @@ public class Product implements Serializable {
     @Column(name = "description", length = 5000)
     private String description;
 
-
-
-
-
+    @Column(name = "time_update", nullable = false)
+    private Instant timeUpdate;
 
 }
