@@ -99,7 +99,8 @@ public abstract class AbstractBaseDAO implements BaseDAO {
         StringBuilder sqlBuilder = new StringBuilder();
         sql = sql.replaceAll("(?i) from ", " from ");
         sqlBuilder.append(sql);
-        sqlBuilder.append(" limit :p_offset, :p_page_size");
+        sqlBuilder.append(" limit :p_page_size ");
+        sqlBuilder.append(" offset :p_offset ");
         parameters.put("p_offset", getOffset(searchDto));
         parameters.put("p_page_size", searchDto.getPageSize());
         return sqlBuilder.toString();

@@ -19,18 +19,4 @@ import javax.validation.Valid;
 @RequestMapping("/api")
 public class ProductCategoryController {
 
-    @Autowired
-    private ProductService productService;
-
-    @PutMapping("/update-product")
-    public ResponseEntity<?> updateProduct(@Valid @RequestBody ProductDto dto) throws LogicException {
-        productService.update(dto);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-    @PostMapping("/create-product")
-    public ResponseEntity<?> saveProduct(@Valid @RequestBody ProductDto dto) throws LogicException {
-        productService.create(dto);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
 }
