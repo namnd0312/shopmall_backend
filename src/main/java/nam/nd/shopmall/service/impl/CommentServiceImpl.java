@@ -6,6 +6,7 @@ import nam.nd.shopmall.exception.LogicException;
 import nam.nd.shopmall.model.Comment;
 import nam.nd.shopmall.service.CommentService;
 import nam.nd.shopmall.service.dto.CommentDto;
+import nam.nd.shopmall.service.dto.CommentPaginatorDto;
 import nam.nd.shopmall.service.mapper.CommentMapper;
 import nam.nd.shopmall.util.Util;
 import org.apache.commons.lang3.StringUtils;
@@ -67,5 +68,10 @@ public class CommentServiceImpl implements CommentService {
 
         commentDao.deleteById(id);
         commentDao.deleteByParentId(id);
+    }
+
+    @Override
+    public void getAllCommentByProductId(CommentPaginatorDto dto) {
+        commentDao.getAllCommentByProductId(dto);
     }
 }

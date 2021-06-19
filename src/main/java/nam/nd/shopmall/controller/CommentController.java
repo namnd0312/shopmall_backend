@@ -1,8 +1,11 @@
 package nam.nd.shopmall.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import nam.nd.shopmall.exception.LogicException;
 import nam.nd.shopmall.service.CommentService;
 import nam.nd.shopmall.service.dto.CommentDto;
+import nam.nd.shopmall.service.dto.CommentPaginatorDto;
+import nam.nd.shopmall.service.dto.ProductPaginatorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,5 +41,11 @@ public class CommentController {
     public ResponseEntity<Void> deleteCommentById(@PathVariable("id") Long id) throws LogicException {
         commentService.deleteComment(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/get-comments")
+    public ResponseEntity<CommentPaginatorDto> getAllComment(@Valid @RequestBody CommentPaginatorDto dto) {
+        commentService.getAllCommentByProductId(dto);
+        return new ResponseEntity(dto, HttpStatus.OK);
     }
 }

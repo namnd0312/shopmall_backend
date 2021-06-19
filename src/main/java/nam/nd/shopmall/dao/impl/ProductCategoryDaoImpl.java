@@ -1,7 +1,6 @@
 package nam.nd.shopmall.dao.impl;
 
 import nam.nd.shopmall.dao.ProductCategoryDao;
-import nam.nd.shopmall.service.ProductCategoryService;
 import org.springframework.stereotype.Repository;
 
 /**

@@ -1,6 +1,8 @@
 package nam.nd.shopmall.dao;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import nam.nd.shopmall.service.dto.CommentDto;
+import nam.nd.shopmall.service.dto.CommentPaginatorDto;
 
 import java.io.Serializable;
 
@@ -13,4 +15,6 @@ public interface CommentDao extends Serializable, BaseDAO {
     void deleteByParentId(Long parentId);
 
     void deleteById(Long id);
+
+    void getAllCommentByProductId(CommentPaginatorDto dto);
 }

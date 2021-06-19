@@ -2,6 +2,7 @@ package nam.nd.shopmall.service;
 
 import nam.nd.shopmall.exception.LogicException;
 import nam.nd.shopmall.service.dto.CommentDto;
+import nam.nd.shopmall.service.dto.CommentPaginatorDto;
 
 /**
  * @author nam.nd
@@ -14,4 +15,7 @@ public interface CommentService {
     void updateComment(CommentDto dto) throws LogicException;
 
     void deleteComment(Long id) throws LogicException;
+
+    void getAllCommentByProductId(CommentPaginatorDto dto);
+
 }
