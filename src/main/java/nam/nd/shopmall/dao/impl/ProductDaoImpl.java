@@ -24,13 +24,13 @@ import java.util.Map;
  */
 
 @Repository
-public class ProductDaoImpl extends AbstractBaseDAO  implements ProductDao {
+public class ProductDaoImpl extends AbstractBaseDAO implements ProductDao {
 
     public void deleteProductById(Long id) {
-        String hql= "DELETE FROM Product p WHERE p.id=:id";
-        Query<Product> query= getSession().createQuery(hql);
-        query.setParameter("id",id);
-         query.executeUpdate();
+        String hql = "DELETE FROM Product p WHERE p.id=:id";
+        Query<Product> query = getSession().createQuery(hql);
+        query.setParameter("id", id);
+        query.executeUpdate();
     }
 
     @Override
@@ -60,23 +60,23 @@ public class ProductDaoImpl extends AbstractBaseDAO  implements ProductDao {
 
         Map<String, Object> parameters = new HashMap<>();
 
-        if(!StringUtils.isEmpty(dto.getStatus()) && !"ALL".equalsIgnoreCase(dto.getStatus())){
+        if (!StringUtils.isEmpty(dto.getStatus()) && !"ALL".equalsIgnoreCase(dto.getStatus())) {
             sqlBuilder.append(" and p.product_status = :status ");
             parameters.put("status", dto.getStatus().toUpperCase());
         }
 
         sqlBuilder.append(" order by ");
 
-        if(!CollectionUtils.isEmpty(dto.getOrders())){
+        if (!CollectionUtils.isEmpty(dto.getOrders())) {
             dto.getOrders().forEach(order -> {
                 String orderProperty = StringUtils.trimToEmpty(order.getProperty());
 
-                switch (orderProperty){
+                switch (orderProperty) {
                     case "productName":
                         sqlBuilder.append(" p.product_name ").append(getOrderBy(order.isAscending())).append(",");
                         break;
 
-                    case  "timeUpdate":
+                    case "timeUpdate":
                         sqlBuilder.append(" p.time_update ").append(getOrderBy(order.isAscending())).append(",");
 
                     default:
@@ -84,7 +84,7 @@ public class ProductDaoImpl extends AbstractBaseDAO  implements ProductDao {
             });
             sqlBuilder.deleteCharAt(sqlBuilder.length() - 1);
 
-        }else {
+        } else {
             sqlBuilder.append(" product_name");
         }
 
@@ -92,7 +92,7 @@ public class ProductDaoImpl extends AbstractBaseDAO  implements ProductDao {
         mapper.writeValueAsString(sqlBuilder.toString());
 
 
-         searchAndCountTotal(dto, sqlBuilder.toString(), parameters, ProductDto.class);
+        searchAndCountTotal(dto, sqlBuilder.toString(), parameters, ProductDto.class);
 
     }
 }

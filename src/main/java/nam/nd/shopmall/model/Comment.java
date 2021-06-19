@@ -24,8 +24,14 @@ public class Comment {
     @Column(name = "content", nullable = false, length = 1000)
     private String content;
 
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
+
     @Column(name = "time_update", nullable = false)
     private Instant timeUpdate;
+
+    @Column(name = "time_create", nullable = false)
+    private Instant timeCreate;
 
     @Column(name = "product_id", nullable = false)
     private Long productId;
