@@ -3,6 +3,7 @@ package nam.nd.shopmall.service.dto;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import nam.nd.shopmall.validator.EnumPatternConstraint;
 import nam.nd.shopmall.validator.NumberFormat;
 
 import javax.validation.constraints.NotEmpty;
@@ -30,6 +31,7 @@ public class ProductDto implements Serializable {
 
     @Size(max = 50)
     @NotEmpty
+    @EnumPatternConstraint(regexp = "ACTIVE|INACTIVE")
     private String productStatus;
 
     @NumberFormat

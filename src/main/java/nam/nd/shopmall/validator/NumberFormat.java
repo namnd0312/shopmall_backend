@@ -9,6 +9,7 @@ import java.lang.annotation.*;
  * This interface mapping with {@link NumberFormatValidator}.
  * @author namnd
  */
+
 @Documented
 @Constraint(validatedBy = NumberFormatValidator.class)
 @Target({ElementType.METHOD, ElementType.FIELD})

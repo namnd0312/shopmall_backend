@@ -1,12 +1,9 @@
 package nam.nd.shopmall.dao.impl;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import nam.nd.shopmall.dao.CommentDao;
 import nam.nd.shopmall.model.Product;
 import nam.nd.shopmall.service.dto.CommentDto;
 import nam.nd.shopmall.service.dto.CommentPaginatorDto;
-import nam.nd.shopmall.service.dto.ProductDto;
 import nam.nd.shopmall.util.Util;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.query.Query;
@@ -57,7 +54,7 @@ public class CommentDaoImpl extends AbstractBaseDAO implements CommentDao {
 
         Map<String, Object> parameters = new HashMap<>();
 
-        if(!StringUtils.isEmpty(dto.getProductId())){
+        if (!StringUtils.isEmpty(dto.getProductId())) {
             sqlBuilder.append("and c.product_id = :productId ");
             parameters.put("productId", Util.stringToLong(dto.getProductId()));
         }
