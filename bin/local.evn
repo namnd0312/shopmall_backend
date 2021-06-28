@@ -1,0 +1,11 @@
+ENERGY=20 GeV
+
+spring.datasource.url=postgresql://localhost:5432/shop_mall
+
+spring.datasource.username=postgres
+
+spring.datasource.password=123456
+
+spring.datasource.driverClassName=org.postgresql.Driver
+
+SPRING_JPA_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect

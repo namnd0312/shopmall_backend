@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+
+    #link localhost
+    url: jdbc:postgresql://localhost:5432/shop_mall
+    username: postgres
+    password: 123456
+    platform: org.hibernate.dialect.PostgreSQLDialect
+
+
+application:
+  cors:
+    allowed-origins: '*'
+    allowed-methods: '*'
+    allowed-headers: '*'
+    exposed-headers: 'Authorization'
+    allow-credentials: true
+    max-age: 3600
+  authentication:
+    jwt:
+      secret-key: jwtGrokonezSecretKey
+      token-validity-milliseconds: 86400000
+      token-validity-in-seconds-for-remember-me: 2592000000
+
+#      ##MIN IO
+#      minio.buckek.name=shop_mall
+#      minio.default.folder=/
+#      minio.access.name=NAMND
+#      minio.access.secret=123456a@
+#      minio.url= http://127.0.0.1:9000
