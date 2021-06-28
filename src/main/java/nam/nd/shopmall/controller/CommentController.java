@@ -1,11 +1,10 @@
 package nam.nd.shopmall.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import nam.nd.shopmall.exception.LogicException;
 import nam.nd.shopmall.service.CommentService;
-import nam.nd.shopmall.service.dto.CommentDto;
-import nam.nd.shopmall.service.dto.CommentPaginatorDto;
-import nam.nd.shopmall.service.dto.ProductPaginatorDto;
+import nam.nd.shopmall.dto.CommentDto;
+import nam.nd.shopmall.dto.CommentPaginatorDto;
+import nam.nd.shopmall.dto.ProductPaginatorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

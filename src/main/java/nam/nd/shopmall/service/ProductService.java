@@ -1,10 +1,10 @@
 package nam.nd.shopmall.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import nam.nd.shopmall.service.dto.ChangeProductStatusDto;
-import nam.nd.shopmall.service.dto.ProductDto;
+import nam.nd.shopmall.dto.ChangeProductStatusDto;
+import nam.nd.shopmall.dto.ProductDto;
 import nam.nd.shopmall.exception.LogicException;
-import nam.nd.shopmall.service.dto.ProductPaginatorDto;
+import nam.nd.shopmall.dto.ProductPaginatorDto;
 
 import java.util.Optional;
 

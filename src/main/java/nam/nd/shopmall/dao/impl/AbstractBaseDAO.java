@@ -1,8 +1,8 @@
 package nam.nd.shopmall.dao.impl;
 
 import nam.nd.shopmall.dao.BaseDAO;
-import nam.nd.shopmall.service.dto.BaseSearch;
-import nam.nd.shopmall.service.dto.OrderDTO;
+import nam.nd.shopmall.dto.BaseSearch;
+import nam.nd.shopmall.dto.OrderDTO;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;

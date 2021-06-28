@@ -1,11 +1,9 @@
 package nam.nd.shopmall.dao;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import nam.nd.shopmall.model.Product;
-import nam.nd.shopmall.service.dto.ProductPaginatorDto;
+import nam.nd.shopmall.dto.ProductPaginatorDto;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @author nam.nd

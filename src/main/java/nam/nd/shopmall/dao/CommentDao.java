@@ -1,8 +1,6 @@
 package nam.nd.shopmall.dao;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import nam.nd.shopmall.service.dto.CommentDto;
-import nam.nd.shopmall.service.dto.CommentPaginatorDto;
+import nam.nd.shopmall.dto.CommentPaginatorDto;
 
 import java.io.Serializable;
 

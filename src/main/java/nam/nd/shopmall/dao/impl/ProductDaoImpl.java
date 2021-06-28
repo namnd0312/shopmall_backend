@@ -4,18 +4,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import nam.nd.shopmall.dao.ProductDao;
 import nam.nd.shopmall.model.Product;
-import nam.nd.shopmall.service.dto.BaseSearch;
-import nam.nd.shopmall.service.dto.ProductDto;
-import nam.nd.shopmall.service.dto.ProductPaginatorDto;
+import nam.nd.shopmall.dto.ProductDto;
+import nam.nd.shopmall.dto.ProductPaginatorDto;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
-import springfox.documentation.swagger2.mappers.ModelMapper;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

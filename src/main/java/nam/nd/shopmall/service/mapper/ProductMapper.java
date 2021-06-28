@@ -2,7 +2,7 @@ package nam.nd.shopmall.service.mapper;
 
 import nam.nd.shopmall.util.Util;
 import nam.nd.shopmall.model.Product;
-import nam.nd.shopmall.service.dto.ProductDto;
+import nam.nd.shopmall.dto.ProductDto;
 import org.springframework.beans.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,5 @@
-package nam.nd.shopmall.service.dto;
+package nam.nd.shopmall.dto;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import nam.nd.shopmall.validator.EnumPatternConstraint;

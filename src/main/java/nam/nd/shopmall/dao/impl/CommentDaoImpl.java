@@ -2,8 +2,8 @@ package nam.nd.shopmall.dao.impl;
 
 import nam.nd.shopmall.dao.CommentDao;
 import nam.nd.shopmall.model.Product;
-import nam.nd.shopmall.service.dto.CommentDto;
-import nam.nd.shopmall.service.dto.CommentPaginatorDto;
+import nam.nd.shopmall.dto.CommentDto;
+import nam.nd.shopmall.dto.CommentPaginatorDto;
 import nam.nd.shopmall.util.Util;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.query.Query;

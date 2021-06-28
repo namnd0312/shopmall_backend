@@ -1,8 +1,8 @@
 package nam.nd.shopmall.service;
 
 import nam.nd.shopmall.exception.LogicException;
-import nam.nd.shopmall.service.dto.CommentDto;
-import nam.nd.shopmall.service.dto.CommentPaginatorDto;
+import nam.nd.shopmall.dto.CommentDto;
+import nam.nd.shopmall.dto.CommentPaginatorDto;
 
 /**
  * @author nam.nd
