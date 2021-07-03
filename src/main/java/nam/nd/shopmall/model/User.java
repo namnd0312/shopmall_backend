@@ -31,10 +31,10 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "phone_number", length = 15, nullable = false)
+    @Column(name = "phone_number", length = 15)
     private String phoneNumber;
 
-    @Column(name = "email", length = 100)
+    @Column(name = "email", length = 100, nullable = false)
     private String email;
 
     @Column(name = "address", length = 200, nullable = true)
@@ -44,8 +44,8 @@ public class User implements Serializable {
     private Boolean active = Boolean.FALSE;
 
 
-    public User(String password, String phoneNumber) {
+    public User(String password, String email) {
         this.password = password;
-        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 }

@@ -33,11 +33,11 @@ public class UserDetailServiceImpl implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String phoneNumber) throws UsernameNotFoundException {
-        logger.trace("Service authenticate: {}", phoneNumber);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        logger.trace("Service authenticate: {}", email);
 
         try {
-            User user = userDao.getUserByPhoneNumber(phoneNumber);
+            User user = userDao.getUserByEmail(email);
 
             List<String> roles = userRoleDao.findAllRoleByUserId(user.getId());
 
@@ -50,7 +50,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
             userDetails.setUser(user);
             return userDetails;
         } catch (EmptyResultDataAccessException emptyResultDataAccessException) {
-            throw new UsernameNotFoundException("User with phone number " + phoneNumber + " not found in the database");
+            throw new UsernameNotFoundException("User with phone number " + email + " not found in the database");
         }
     }
 }

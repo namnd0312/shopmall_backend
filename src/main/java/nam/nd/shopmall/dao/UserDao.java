@@ -10,5 +10,5 @@ import java.io.Serializable;
  */
 public interface UserDao extends BaseDAO, Serializable {
 
-    User getUserByPhoneNumber(String phoneNumber);
+    User getUserByEmail(String email);
 }

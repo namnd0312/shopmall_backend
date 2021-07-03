@@ -21,10 +21,10 @@ public class UserDaoImpl extends AbstractBaseDAO implements UserDao  {
 
 
     @Override
-    public User getUserByPhoneNumber(String phoneNumber) {
-        logger.info("---start DAO get User by phoneNumber:{}", phoneNumber);
-        Query<User> query = getSession().createQuery("select u from User u where u.phoneNumber=:phone_number", User.class);
-        query.setParameter("phone_number", phoneNumber.trim());
+    public User getUserByEmail(String email) {
+        logger.info("---start DAO get User by email:{}", email);
+        Query<User> query = getSession().createQuery("select u from User u where u.email=:email", User.class);
+        query.setParameter("email", email.trim());
         List<User> userList = query.list();
         return userList.isEmpty() ? null : userList.get(0);
     }

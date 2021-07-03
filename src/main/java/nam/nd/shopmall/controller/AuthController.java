@@ -6,11 +6,12 @@ import nam.nd.shopmall.dto.requests.SignUpRequest;
 import nam.nd.shopmall.enums.ERole;
 import nam.nd.shopmall.model.Role;
 import nam.nd.shopmall.model.User;
+import nam.nd.shopmall.model.UserRole;
 import nam.nd.shopmall.security.jwt.TokenProvider;
+import nam.nd.shopmall.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,6 +42,9 @@ public class AuthController {
 
     @Autowired
     private TokenProvider tokenProvider;
+
+    @Autowired
+    private UserRoleService userRoleService;
 
 //    @PostMapping("/login")
 //    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -89,7 +93,7 @@ public class AuthController {
 
         // Create new user's account
         User user = new User(
-                encoder.encode(signUpRequest.getPassword()),signUpRequest.getPhoneNumber());
+                encoder.encode(signUpRequest.getPassword()),signUpRequest.getEmail());
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
@@ -116,8 +120,10 @@ public class AuthController {
             });
         }
 
-//        user.setRoles(roles);
-        userDao.save(user);
+        User entity = (User) userDao.save(user);
+        if(!roles.isEmpty()){
+            roles.forEach(r ->   userRoleService.saveUserRole(entity.getId(), r.getId()));
+        }
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

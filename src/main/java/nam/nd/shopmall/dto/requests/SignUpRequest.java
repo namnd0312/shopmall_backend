@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
@@ -17,9 +18,10 @@ import java.util.Set;
 public class SignUpRequest {
 
     @NotBlank
-    @Size(max = 15)
-    private String phoneNumber;
+    @Size(max = 100)
+    private String email;
 
+    @NotEmpty
     private Set<String> role;
 
     @NotBlank
