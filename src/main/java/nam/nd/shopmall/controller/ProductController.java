@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.sql.SQLException;
 
 /**
  * @author nam.nd
@@ -25,7 +26,7 @@ public class ProductController {
     private ProductService productService;
 
     @PutMapping("/update-product")
-    public ResponseEntity<Void> updateProduct(@Valid @RequestBody ProductDto dto) throws LogicException {
+    public ResponseEntity<Void> updateProduct(@Valid @RequestBody ProductDto dto) throws LogicException, SQLException, ClassNotFoundException {
         productService.update(dto);
         return new ResponseEntity<>(HttpStatus.OK);
     }

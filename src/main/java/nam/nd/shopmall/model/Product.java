@@ -24,19 +24,19 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "product_name", nullable = false, length = 100)
+    @Column(name = "product_name",length = 100)
     private String productName;
 
-    @Column(name = "price", nullable = false, length = 15)
+    @Column(name = "price",  length = 15)
     private Double price;
 
-    @Column(name = "product_status", nullable = false, length = 50)
+    @Column(name = "product_status", length = 50)
     private String productStatus;
 
-    @Column(name = "category_id", nullable = false)
+    @Column(name = "category_id")
     private Long categoryId;
 
-    @Column(name = "supplier_id", nullable = false)
+    @Column(name = "supplier_id")
     private Long supplierId;
 
     @Column(name = "url_image", length = 200)
@@ -45,7 +45,7 @@ public class Product implements Serializable {
     @Column(name = "description", length = 5000)
     private String description;
 
-    @Column(name = "time_update", nullable = false)
+    @Column(name = "time_update")
     private Instant timeUpdate;
 
 }

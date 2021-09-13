@@ -10,10 +10,16 @@ import nam.nd.shopmall.service.mapper.ProductMapper;
 import nam.nd.shopmall.exception.LogicException;
 import nam.nd.shopmall.model.Product;
 import nam.nd.shopmall.service.ProductService;
-import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.jpa.EntityManagerFactoryInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Types;
 import java.time.Instant;
 import java.util.Optional;
 
@@ -43,22 +49,33 @@ public class ProductServiceImpl implements ProductService {
         productDao.save(entity);
     }
 
+    @Autowired
+    private  EntityManager e;
+
     @Override
     public void update(ProductDto dto) throws LogicException {
 
-        if (StringUtils.isEmpty(dto.getId())) {
-            throw new LogicException(FIELD_REQUIRED, "id");
+
+        try {
+            EntityManagerFactoryInfo factory = (EntityManagerFactoryInfo) e.getEntityManagerFactory();
+            Connection connection = factory.getDataSource().getConnection();
+            String sql = "{? = CALL public.product_insert(?,?,?)}";
+            CallableStatement statement = connection.prepareCall(sql);
+            statement.setString(2, "namnd1");
+            statement.setString(3,"namnd2");
+            statement.setString(4, "namnd3");
+            statement.registerOutParameter(1, Types.VARCHAR);
+            statement.executeQuery();
+            ResultSet result = (ResultSet) statement.getObject(1);
+            while (result.next()) {
+            }
+            result.close();
+            System.out.println(result);
+
+        } catch (Exception e) {
+            System.out.println(e);
         }
 
-        Long id = Util.stringToLong(dto.getId());
-        Product product = productDao.findById(id, Product.class).orElse(null);
-
-        if (product == null) {
-            throw new LogicException(RECORD_NOT_EXIST);
-        }
-
-        Product entity = productMapper.toEntity(dto);
-        productDao.update(entity);
     }
 
     @Override
